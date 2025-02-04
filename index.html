@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Webpage</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function encodeText() {
+            let input = document.getElementById("textInput").value;
+            document.getElementById("encodedOutput").innerText = btoa(input);
+        }
+        
+        function reverseText() {
+            let input = document.getElementById("reverseInput").value;
+            document.getElementById("reverseOutput").innerText = input.split('').reverse().join('');
+        }
+        
+        function countWords() {
+            let input = document.getElementById("wordCountInput").value;
+            document.getElementById("wordCountOutput").innerText = input.split(/\s+/).filter(Boolean).length;
+        }
+    </script>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">My Website</a>
+            <a class="navbar-brand" href="#">Chris Codex</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,8 +42,8 @@
 
     <!-- Hero Section -->
     <header class="bg-primary text-white text-center py-5">
-        <h1>Welcome to My Website</h1>
-        <p>A simple Bootstrap-based webpage</p>
+        <h1>Welcome to ChrisCodex Text</h1>
+        <p>Un simple modificador de texto para su diversión. </p>
     </header>
 
     <!-- Services Section -->
@@ -36,24 +52,30 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Service 1</h5>
-                        <p class="card-text">Description of service 1.</p>
+                        <h5 class="card-title">Text Encoder</h5>
+                        <input type="text" id="textInput" class="form-control mb-2" placeholder="Ingresar Texto">
+                        <button class="btn btn-primary" onclick="encodeText()">Encode</button>
+                        <p class="mt-2" id="encodedOutput"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Service 2</h5>
-                        <p class="card-text">Description of service 2.</p>
+                        <h5 class="card-title">Text Reverser</h5>
+                        <input type="text" id="reverseInput" class="form-control mb-2" placeholder="Ingresar Texto">
+                        <button class="btn btn-primary" onclick="reverseText()">Reverse</button>
+                        <p class="mt-2" id="reverseOutput"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Service 3</h5>
-                        <p class="card-text">Description of service 3.</p>
+                        <h5 class="card-title">Word Counter</h5>
+                        <input type="text" id="wordCountInput" class="form-control mb-2" placeholder="Ingresar Texto">
+                        <button class="btn btn-primary" onclick="countWords()">Count Words</button>
+                        <p class="mt-2" id="wordCountOutput"></p>
                     </div>
                 </div>
             </div>
